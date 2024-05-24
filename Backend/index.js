@@ -37,7 +37,7 @@ app.post("/posts", async (req, res) => {
             "INSERT INTO posts (id, titulo, img, descripcion, likes) VALUES ($1, $2, $3, $4, $5)";
         const values = [id, titulo, url, descripcion, 0];
         const result = await pool.query(query, values);
-        res.send(result);
+        res.send("Post creado");
     } catch (error) {
         console.log("Error del POST:", error.message);
         res.status(error.code).json(error.message);
@@ -69,7 +69,7 @@ app.delete("/posts/:id", async (req, res) => {
                 message: `El ID: ${id} no existe`,
             };
         }
-        res.json("Post borrado con exito");
+        res.send("Post borrado con exito");
     } catch (error) {
         res.status(error.code).json(error.message);
         console.log("Error del DELETE:", error.message);
