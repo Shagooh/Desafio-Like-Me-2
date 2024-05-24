@@ -29,7 +29,7 @@ app.post("/posts", async (req, res) => {
         if (titulo === "" || url === "" || descripcion === "") {
             throw {
                 code: 400,
-                message: `Llenar todos los campos correctamente`,
+                message: `Llenar todos los campos correctamente!`,
             };
         }
         const id = Math.floor(Math.random() * 9999);
